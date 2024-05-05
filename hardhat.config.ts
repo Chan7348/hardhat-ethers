@@ -4,7 +4,7 @@ import "@nomicfoundation/hardhat-foundry";
 import "@nomicfoundation/hardhat-chai-matchers";
 import "@nomicfoundation/hardhat-ethers";
 import "hardhat-interact";
-import '@primitivefi/hardhat-dodoc';
+// import '@primitivefi/hardhat-dodoc';
 const config: HardhatUserConfig = {
   solidity: {
     version: "0.8.24",
@@ -20,19 +20,14 @@ const config: HardhatUserConfig = {
   networks: {
     hardhat: {
       forking: {
-        // url: vars.get("MAINNET_INFURA_URL") || "",
-        // url: vars.get("MAINNET_ALCHEMY_URL") || "",
-        // url: "https://rpc.merlinchain.io", // merlin 
-        // url: "https://arb-sepolia.g.alchemy.com/v2/a1Z6RxI8nUQLxzzNnYDbDkSzwZYpsmHU", //arbitrum sepolia
-        url: "https://eth-sepolia.g.alchemy.com/v2/7dg61Re-J49kkBk9urxJIBwCRaVQcWq8", //sepolia
-        // blockNumber: 19532800,
-        // blockNumber: 5634369,
+        url: "https://eth-mainnet.g.alchemy.com/v2/0bxYCEMVua9fTrQ8ZdjLmtneFjjI2HI_" || "", // ethereum
+        blockNumber: 19797228,
       },
-      blockGasLimit: 60000000,
+      blockGasLimit: 60000000000,
       // hardfork: "cancun",
     },
-    arbitrum_sepolia: {
-      url: "https://arb-sepolia.g.alchemy.com/v2/a1Z6RxI8nUQLxzzNnYDbDkSzwZYpsmHU" || "",
+    ethereum: {
+      url: "https://eth-mainnet.g.alchemy.com/v2/0bxYCEMVua9fTrQ8ZdjLmtneFjjI2HI_" || "",
       accounts: [vars.get("TEST1_KEY"), vars.get("TEST2_KEY")],
     },
     sepolia: {
@@ -63,10 +58,10 @@ const config: HardhatUserConfig = {
       base: 'TJY2CHMTQMI1HF4WVQJES2CDVF4K733CUK',
     }
   },
-  dodoc: {
-    runOnCompile: true,
-    debugMode: false,
-  }
+  // dodoc: {
+  //   runOnCompile: true,
+  //   debugMode: false,
+  // }
 };
 
 export default config;
